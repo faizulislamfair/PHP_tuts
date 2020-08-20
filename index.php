@@ -170,3 +170,189 @@ foreach ($array as $loopdata) {
 }
 
  ?>
+
+<!--- Displaying elements through array --->
+
+<br><br>
+<?php
+
+ $array = array("Daniel", "Jane", "Jacob", "John", "Mariane");
+ echo $array[2];
+
+ ?>
+
+<!--- Printing out functions --->
+
+<br><br>
+
+ <?php
+
+function kola() {
+  $f = 1010101010;
+  echo $f;
+}
+
+kola();
+
+  ?>
+
+
+ <!--- Creating Customized Functions --->
+
+ <br>
+ <br>
+
+<?php
+ function sweet($x) {
+   $sugar = $x * 0.50;
+   echo "Here is 50% of what you wrote: ".$sugar ;
+ }
+
+ $x = 100;
+ sweet($x);
+
+ echo "<br>";
+ echo "<br>";
+
+
+ $a = 10;
+sweet($a);
+
+ ?>
+
+
+ <!--- Including Documents --->
+
+<br><br>
+
+<?php
+
+include "header.php";
+
+ ?>
+
+ <section>
+   <div class="content">
+     <h1>You there?</h1>
+   </div>
+ </section>
+
+
+<!--- Super Globals --->
+
+<!---
+$GLOBALS
+$_POST
+$_GET
+$_COOKIE
+$_SESSION
+--->
+
+<br><br>
+
+
+<!--- $GLOBALS --->
+
+<?php
+
+$x = 5;
+
+function something() {
+  $y = 10;
+  echo $GLOBALS['x'];
+}
+
+something();
+
+ ?>
+
+
+
+<!--- GET --->
+
+<br><br>
+
+
+<form method="GET"> <!--- GET is seen on URL --->
+  <input type="hidden" name="name" value="Faizul">
+  <button type="submit">PRESS ME!</button>
+</form>
+
+
+<?php
+
+echo $_GET['name'];
+
+ ?>
+
+<!--- POST --->
+
+<br><br>
+
+<form method="post">
+  <input type="hidden" name="name" value="Saquib">
+  <button type="submit">PRESS ME!</button>
+</form>
+
+<?php
+
+echo $_POST['name'];
+
+ ?>
+
+ <!---
+ $_COOKIE
+ $_SESSION variable
+ --->
+
+ <?php
+
+setcookie("name", "Daniel", time() + 86400);
+
+$_SESSION['name'] = "12";
+
+  ?>
+
+<br><br>
+
+
+<!--- Starting a session variable --->
+
+<?php
+
+  session_start();
+
+ ?>
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="index.php">HOME</a></li>
+      <li><a href="contact.php">CONTACT</a></li>
+    </ul>
+
+
+
+<?php
+
+$_SESSION['username'] = "faizulislam";
+echo $_SESSION['username'];
+
+echo "<br><br>";
+
+if (!isset($_SESSION['username'])) {
+    echo "You are not logged in!";
+} else {
+  echo "You are logged in!";
+}
+
+?>
+
+  </body>
+</html>
